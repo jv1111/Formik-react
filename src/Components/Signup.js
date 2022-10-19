@@ -13,7 +13,7 @@ export const Signup = () => {
             .string()
             .max(15, 'Must be 15 character or less')
             .required('Required'),
-        email:Yup
+        email: Yup
             .string()
             .email('Email is required')
             .required('Required'),
@@ -27,16 +27,20 @@ export const Signup = () => {
             .required('Required'),
     })
     const initialValues = {
-        firstMame: '',
+        firstName: '',
         lastName: '',
         email: '',
         password: '',
         confirmPassword: '',
     }
+    const onSubmit = (data) => {
+        console.log(data);
+    }
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validate}
+            onSubmit={onSubmit}
         >
             {formik => (
                 <div>
@@ -48,7 +52,7 @@ export const Signup = () => {
                         <TextField label='Email' name='email' type='email' />
                         <TextField label='Password' name='password' type='password' />
                         <TextField label='Confirm Password' name='confirmPassword' type='password' />
-                        <Button variant='dark'>Register</Button>
+                        <Button variant='dark' type='submit'>Register</Button>
                         <Button variant='danger'>Reset</Button>
                     </Form>
                 </div>
