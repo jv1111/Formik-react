@@ -1,4 +1,4 @@
-import { useField } from "formik"
+import { ErrorMessage, useField } from "formik"
 
 export const TextField = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -12,6 +12,7 @@ export const TextField = ({ label, ...props }) => {
                 {...field} {...props}
                 autoComplete="off"
             />
+            <ErrorMessage name={field.name}/>
         </div>
     )
 }
